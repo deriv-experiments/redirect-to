@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+</head>
+<body>
+   Redirectin...
+
+   <script>
+    var pathname = window.location.pathname;
+    var pathparts = pathname.split("/");
+    var host = pathparts[2];
+    var port = pathparts[3];
+    var additional = pathparts.slice(4).join("/");
+    window.location.replace("https://" + host + ":" + port + "/" + additional + window.location.search);
+  </script>
+</body>
+</html>
