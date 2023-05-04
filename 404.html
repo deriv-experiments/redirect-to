@@ -3,17 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
+  <style>
+    #warning {
+      color: rgb(255, 255, 150);
+      border: 1px solid rgb(255, 255, 150);
+      padding: 4px;
+      display: inline-block;
+      border-radius: 4px;
+    }
+    #error {
+      color: red;
+      border: 1px solid red;
+      padding: 4px;
+      display: inline-block;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-   Redirecting...
+  <script>
+    function createRedirectingElement(url) {
+      var p = document.createElement("p");
+      p.innerHTML = 'Redirecting to <a href="' + url + '" id="target-url">' + url + '</a>...';
+      document.body.appendChild(p);
+    }
 
-   <script>
-    var pathname = window.location.pathname;
-    var pathparts = pathname.split("/");
-    var host = pathparts[2];
-    var port = pathparts[3];
-    var additional = pathparts.slice(4).join("/");
-    window.location.replace("http://" + host + ":" + port + "/" + additional + window.location.search);
+    function createWarningElement() {
+      var p = document.createElement("p");
+      p.id = "warning";
+      p.textContent = "It's taking longer than expected. The target website might be offline, or your internet connection may be slow or disrupted.";
+      document.body.appendChild(p);
+    }
+
+    function createErrorElement(message) {
+      var p = document.createElement("p");
+      p.id = "error";
+      p.textContent = message;
+      document.body.appendChild(p);
+    }
+
+    function redirectTo(url) {
+      createRedirectingElement(url);
+      window.location.replace(url);
+    }
+
+    try {
+      var pathname = window.location.pathname;
+      var pathparts = pathname.split("/");
+      var host = pathparts[2];
+      var port = pathparts[3];
+      var additional = pathparts.slice(4).join("/");
+      var targetUrl = "http://" + host + ":" + port + "/" + additional + window.location.search;
+
+      redirectTo(targetUrl);
+      setTimeout(createWarningElement, 2000);
+    } catch (error) {
+      createErrorElement("An error occurred: " + error.message);
+    }
   </script>
 </body>
 </html>

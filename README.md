@@ -1,11 +1,23 @@
-# README
+# Redirect-to
 
-This mini app allows you to redirect to a URL via GitHub, particularly useful when dealing with systems that don't allow ports in the URL. It works by taking the URL with the port, splitting it into parts, and then redirecting to the same URL but without the port.
+`Redirect-to` is a small web application that allows you to redirect to a URL with a port in it, especially useful when dealing with systems that do not allow ports in the URL. The application is hosted at [https://deriv-experiments.github.io/redirect-to](https://deriv-experiments.github.io/redirect-to).
 
-## How to Use
+## Usage
 
-To use this app, simply navigate to https://deriv-experiments.github.io/redirect-to and add your URL with the port to the end of the URL as a path.
+To use this application, simply append the target host, port, and any additional path or query parameters to the base URL:
 
-For example, if you want to redirect to a URL with the port `8080`, you would navigate to https://deriv-experiments.github.io/redirect-to/your-url-here:8080.
+```
+https://deriv-experiments.github.io/redirect-to/HOST/PORT/ADDITIONAL_PATH?QUERY_PARAMETERS
+```
 
-If your URL also contains additional path parts, you can include them after the port, separated by slashes. For example, if your URL is `your-url-here:8080/path/to/resource`, you would navigate to https://deriv-experiments.github.io/redirect-to/your-url-here:8080/path/to/resource.
+Replace `HOST`, `PORT`, `ADDITIONAL_PATH`, and `QUERY_PARAMETERS` with the desired values.
+
+For example, to redirect to `http://example.com:8080/some/path?param=value`, you would use:
+
+```
+https://deriv-experiments.github.io/redirect-to/example.com/8080/some/path?param=value
+```
+
+## How it works
+
+The application uses JavaScript to parse the URL and extract the host, port, additional path, and query parameters. Then, it redirects the user to the target URL by updating the `window.location` property.
