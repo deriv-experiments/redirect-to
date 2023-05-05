@@ -1,6 +1,6 @@
-# Redirect-to
+# redirect-to
 
-`Redirect-to` is a small web application that allows you to redirect to a URL with a port in it, especially useful when dealing with systems that do not allow ports in the URL. The application is hosted at [https://deriv-experiments.github.io/redirect-to](https://deriv-experiments.github.io/redirect-to).
+This is a small web application that allows you to redirect to a URL with a port in it, especially useful when dealing with systems that do not allow ports in the URL. The application is hosted at [https://deriv-experiments.github.io/redirect-to](https://deriv-experiments.github.io/redirect-to).
 
 ## Usage
 
