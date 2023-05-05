@@ -7,15 +7,15 @@
 To use this application, simply append the target host, port, and any additional path or query parameters to the base URL:
 
 ```
-https://deriv-experiments.github.io/redirect-to/HOST/PORT/ADDITIONAL_PATH?QUERY_PARAMETERS
+https://deriv-experiments.github.io/redirect-to/PROTOCOL/HOST/PORT/ADDITIONAL_PATH?QUERY_PARAMETERS
 ```
 
-Replace `HOST`, `PORT`, `ADDITIONAL_PATH`, and `QUERY_PARAMETERS` with the desired values.
+Replace `PROTOCOL`, `HOST`, `PORT`, `ADDITIONAL_PATH`, and `QUERY_PARAMETERS` with the desired values.
 
 For example, to redirect to `http://example.com:8080/some/path?param=value`, you would use:
 
 ```
-https://deriv-experiments.github.io/redirect-to/example.com/8080/some/path?param=value
+https://deriv-experiments.github.io/redirect-to/http/example.com/8080/some/path?param=value
 ```
 
 ## How it works

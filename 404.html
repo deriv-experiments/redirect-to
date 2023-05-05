@@ -58,10 +58,15 @@
     try {
       var pathname = window.location.pathname;
       var pathparts = pathname.split("/");
-      var host = pathparts[2];
-      var port = pathparts[3];
-      var additional = pathparts.slice(4).join("/");
-      var targetUrl = "http://" + host + ":" + port + "/" + additional + window.location.search;
+
+      if (pathparts.length !== 6) {
+        throw new Error('not enough redirect parts');
+      }
+      var protocol = pathparts[2];
+      var host = pathparts[3];
+      var port = pathparts[4];
+      var additional = pathparts.slice(5).join("/");
+      var targetUrl = protocol + "://" + host + ":" + port + "/" + additional + window.location.search;
 
       redirectTo(targetUrl);
       setTimeout(createWarningElement, 2000);
