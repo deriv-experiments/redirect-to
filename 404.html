@@ -59,7 +59,7 @@
       var pathname = window.location.pathname;
       var pathparts = pathname.split("/");
 
-      if (pathparts.length < 6) {
+      if (pathparts.length < 4) {
         throw new Error('not enough redirect parts');
       }
       var protocol = pathparts[2];
